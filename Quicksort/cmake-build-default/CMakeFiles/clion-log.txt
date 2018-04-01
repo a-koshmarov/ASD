@@ -1,0 +1,4 @@
+"C:\Program Files\JetBrains\CLion 2017.3.1\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE= -G "CodeBlocks - MinGW Makefiles" C:\Programming\Cpp_Projects\Quicksort
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Programming/Cpp_Projects/Quicksort/cmake-build-default

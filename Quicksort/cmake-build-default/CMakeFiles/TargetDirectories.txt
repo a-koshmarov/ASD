@@ -1,0 +1,3 @@
+C:/Programming/Cpp_Projects/Quicksort/cmake-build-default/CMakeFiles/edit_cache.dir
+C:/Programming/Cpp_Projects/Quicksort/cmake-build-default/CMakeFiles/Quicksort.dir
+C:/Programming/Cpp_Projects/Quicksort/cmake-build-default/CMakeFiles/rebuild_cache.dir
