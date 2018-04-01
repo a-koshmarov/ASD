@@ -12,19 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51836be4-236c-4bf2-a08b-693ed69c945a" name="Default" comment="Added bin_tree functionality">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../BinSearch/.idea/BinSearch.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../BinSearch/.idea/codeStyles/Project.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../BinSearch/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../BinSearch/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../BinSearch/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../BinSearch/CMakeLists.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../BinSearch/main.cpp" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/BinaryTree.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/BinaryTree.exe" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BinaryTree.dir/main.cpp.obj" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BinaryTree.dir/main.cpp.obj" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BinaryTree.dir/objects.a" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BinaryTree.dir/objects.a" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-      <change beforePath="$PROJECT_DIR$/../Queue_with_min/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Queue_with_min/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../BinSearch/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../BinSearch/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../BinSearch/cmake-build-debug/CMakeFiles/BinSearch.dir/depend.make" afterPath="$PROJECT_DIR$/../BinSearch/cmake-build-debug/CMakeFiles/BinSearch.dir/depend.make" />
+      <change beforePath="$PROJECT_DIR$/../BinSearch/main.cpp" afterPath="$PROJECT_DIR$/../BinSearch/main.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
