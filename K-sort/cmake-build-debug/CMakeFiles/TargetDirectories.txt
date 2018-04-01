@@ -1,0 +1,3 @@
+C:/ITMO/C/K-sort/cmake-build-debug/CMakeFiles/K_sort.dir
+C:/ITMO/C/K-sort/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/ITMO/C/K-sort/cmake-build-debug/CMakeFiles/rebuild_cache.dir

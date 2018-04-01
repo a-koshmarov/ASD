@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2017.2.2\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\TreeHeight.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\TreeHeight.dir/objects.a @CMakeFiles\TreeHeight.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\TreeHeight.dir/objects.a -Wl,--no-whole-archive  -o TreeHeight.exe -Wl,--out-implib,libTreeHeight.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\TreeHeight.dir\linklibs.rsp

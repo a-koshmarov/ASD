@@ -1,0 +1,3 @@
+C:/ITMO/C/BinaryTree/cmake-build-debug/CMakeFiles/BinaryTree.dir
+C:/ITMO/C/BinaryTree/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/ITMO/C/BinaryTree/cmake-build-debug/CMakeFiles/rebuild_cache.dir

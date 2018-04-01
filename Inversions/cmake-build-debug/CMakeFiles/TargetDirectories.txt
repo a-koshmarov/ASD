@@ -1,0 +1,3 @@
+C:/ITMO/C/Inversions/cmake-build-debug/CMakeFiles/Inversions.dir
+C:/ITMO/C/Inversions/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/ITMO/C/Inversions/cmake-build-debug/CMakeFiles/rebuild_cache.dir

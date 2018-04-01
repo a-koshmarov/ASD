@@ -1,0 +1,3 @@
+C:/ITMO/C/TreeHeight/cmake-build-debug/CMakeFiles/TreeHeight.dir
+C:/ITMO/C/TreeHeight/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/ITMO/C/TreeHeight/cmake-build-debug/CMakeFiles/rebuild_cache.dir
