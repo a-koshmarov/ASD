@@ -269,9 +269,6 @@ int main() {
 
     fin.close();
     fout.close();
-
-    tree.getParent(3);
-
     return 0;
 
 }
