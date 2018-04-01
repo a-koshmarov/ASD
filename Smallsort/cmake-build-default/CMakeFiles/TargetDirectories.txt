@@ -1,0 +1,3 @@
+C:/Programming/Cpp_Projects/Smallsort/cmake-build-default/CMakeFiles/edit_cache.dir
+C:/Programming/Cpp_Projects/Smallsort/cmake-build-default/CMakeFiles/Smallsort.dir
+C:/Programming/Cpp_Projects/Smallsort/cmake-build-default/CMakeFiles/rebuild_cache.dir
