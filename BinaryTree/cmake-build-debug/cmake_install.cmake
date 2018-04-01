@@ -1,4 +1,4 @@
-# Install script for directory: C:/ITMO/C/BinaryTree
+# Install script for directory: C:/ITMO/ASD/BinaryTree
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/ITMO/C/BinaryTree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/ITMO/ASD/BinaryTree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
