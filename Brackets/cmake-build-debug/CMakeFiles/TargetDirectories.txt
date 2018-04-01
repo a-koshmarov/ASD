@@ -1,0 +1,3 @@
+C:/Programming/Cpp_Projects/Brackets/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Programming/Cpp_Projects/Brackets/cmake-build-debug/CMakeFiles/Brackets.dir
+C:/Programming/Cpp_Projects/Brackets/cmake-build-debug/CMakeFiles/rebuild_cache.dir
