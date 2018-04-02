@@ -14,11 +14,8 @@ set(CMAKE_CXX_PLATFORM_ID "MinGW")
 set(CMAKE_CXX_SIMULATE_ID "")
 set(CMAKE_CXX_SIMULATE_VERSION "")
 
-
 set(CMAKE_AR "C:/MinGW/bin/ar.exe")
-set(CMAKE_CXX_COMPILER_AR "C:/MinGW/bin/gcc-ar.exe")
 set(CMAKE_RANLIB "C:/MinGW/bin/ranlib.exe")
-set(CMAKE_CXX_COMPILER_RANLIB "C:/MinGW/bin/gcc-ranlib.exe")
 set(CMAKE_LINKER "C:/MinGW/bin/ld.exe")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
 set(CMAKE_CXX_COMPILER_LOADED 1)

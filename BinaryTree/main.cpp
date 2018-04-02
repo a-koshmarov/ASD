@@ -3,18 +3,25 @@
 
 using namespace std;
 
-class Node {
-public:
-    int value_;
-    Node *left_;
-    Node *right_;
-    Node *parent_;
+//class Node {
+//public:
+//    int value_;
+//    Node *left_;
+//    Node *right_;
+//    Node *parent_;
+//
+//    Node(int val) : value_(val) {
+//        left_ = NULL;
+//        right_ = NULL;
+//        parent_ = NULL;
+//    };
+//};
 
-    Node(int val) : value_(val) {
-        left_ = NULL;
-        right_ = NULL;
-        parent_ = NULL;
-    };
+struct Node {
+    int value_;
+    Node *left_ = NULL;
+    Node *right_ = NULL;
+    Node *parent_ = NULL;
 };
 
 class Tree {
@@ -25,7 +32,8 @@ private:
         if (root->value_ < value) {
             if (!root->right_) {
 //                cout << value << " is bigger then " << root->value_ << endl;
-                root->right_ = new Node(value);
+                root->right_ = new Node;
+                root->right_->value_ = value;
                 root->right_->parent_ = root;
             } else {
                 add(root->right_, value);
@@ -33,7 +41,8 @@ private:
         } else {
             if (!root->left_) {
 //                cout << value << " is smaller then " << root->value_ << endl;
-                root->left_ = new Node(value);
+                root->left_ = new Node;
+                root->left_->value_ = value;
                 root->left_->parent_ = root;
             } else {
                 add(root->left_, value);
@@ -42,7 +51,7 @@ private:
     }
 
     Node *search(Node *root, int value) {
-        while (root->value_ != value) {
+        while (root && root->value_ != value) {
             if (value < root->value_) {
                 if (root->left_ != NULL) {
                     root = root->left_;
@@ -59,14 +68,14 @@ private:
     }
 
     Node *minimum(Node *root) {
-        while (root->left_ != NULL) {
+        while (root && root->left_ != NULL) {
             root = root->left_;
         }
         return root;
     }
 
     Node *maximum(Node *root) {
-        while (root->right_ != NULL) {
+        while (root && root->right_ != NULL) {
             root = root->right_;
         }
         return root;
@@ -107,8 +116,10 @@ private:
                 return (successor(n));
             } else {
                 Node *t = minimum(root);
-                if (t->value_ > value) {
+                if (t && t->value_ > value) {
                     return t;
+                } else {
+                    return NULL;
                 }
             }
         }
@@ -150,7 +161,7 @@ private:
                 return (ancestor(n));
             } else {
                 Node *t = maximum(root);
-                if (t->value_ < value) {
+                if (t && t->value_ < value) {
                     return t;
                 }
             }
@@ -190,7 +201,8 @@ public:
             add(root, value);
         } else {
 //            cout << "no root" << endl;
-            root = new Node(value);
+            root = new Node;
+            root->value_ = value;
 //            cout << "root is " << root->value_ << endl;
         }
     }
@@ -201,24 +213,22 @@ public:
         } else return 0;
     }
 
-    ostream &treeSuccessor(int value, ostream &s) {
+    int treeSuccessor(int value) {
         Node *n = successor(value);
         if (n) {
-            s << n->value_ << endl;
+            return n->value_;
         } else {
-            s << "none" << endl;
+            return 1000000001;
         }
-        return s;
     }
 
-    ostream &treeAncestor(int value, ostream &s) {
+    int treeAncestor(int value) {
         Node *n = ancestor(value);
         if (n) {
-            s << n->value_ << endl;
+            return n->value_;
         } else {
-            s << "none" << endl;
+            return 1000000001;
         }
-        return s;
     }
 
     void getRoot() {
@@ -240,7 +250,7 @@ public:
 int main() {
     Tree tree;
     string command;
-    int num;
+    int num , ret;
 
     ifstream fin("bstsimple.in");
     ofstream fout("bstsimple.out");
@@ -261,9 +271,19 @@ int main() {
                 fout << "false" << endl;
             }
         } else if (command == "next") {
-            tree.treeSuccessor(num, fout);
+            ret = tree.treeSuccessor(num);
+            if (ret!=1000000001){
+                fout << ret << endl;
+            } else {
+                fout << "none" << endl;
+            }
         } else if (command == "prev") {
-            tree.treeAncestor(num, fout);
+            ret = tree.treeAncestor(num);
+            if (ret!=1000000001){
+                fout << ret << endl;
+            } else {
+                fout << "none" << endl;
+            }
         }
     }
 
