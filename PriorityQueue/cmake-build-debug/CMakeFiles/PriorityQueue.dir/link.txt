@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2017.3.1\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\PriorityQueue.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\PriorityQueue.dir/objects.a @CMakeFiles\PriorityQueue.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\PriorityQueue.dir/objects.a -Wl,--no-whole-archive  -o PriorityQueue.exe -Wl,--out-implib,libPriorityQueue.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\PriorityQueue.dir\linklibs.rsp

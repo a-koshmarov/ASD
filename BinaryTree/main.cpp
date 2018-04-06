@@ -1,5 +1,11 @@
 #include <iostream>
+
+#ifndef DEBUG
 #include <fstream>
+#else
+#define fin cin
+#define fout cout
+#endif
 
 using namespace std;
 
@@ -22,6 +28,15 @@ struct Node {
     Node *left_ = NULL;
     Node *right_ = NULL;
     Node *parent_ = NULL;
+    void print(int height = 0) {
+        if (right_ != NULL)
+            right_->print(height + 4);
+        for (int i = 0; i < height; i++)
+            cout << ' ';
+        cout << value_ << endl;
+        if (left_ != NULL)
+            left_->print(height + 4);
+    }
 };
 
 class Tree {
@@ -168,31 +183,69 @@ private:
         }
     }
 
-    Node *deleteNode(Node *root, int value) {
-        if (!root) return root;
+    void deleteNode(int value) {
+//        if (!root) return root;
+//
+//        if (value < root->value_) {
+//            root->left_ = deleteNode(root->left_, value);
+//        } else if (value > root->value_) {
+//            root->right_ = deleteNode(root->right_, value);
+//        } else {
+//            if (root->left_ == NULL) {
+//                Node *node = root->right_;
+//                node->parent_ = root->parent_;
+//                delete root;
+//                return node;
+//            } else if (root->right_ == NULL) {
+//                Node *node = root->left_;
+//                node->parent_ = root->parent_;
+//                delete root;
+//                return node;
+//            }
+//
+//            Node *node = minimum(root->right_);
+//            root->value_ = node->value_;
+//            root->right_ = deleteNode(root->right_, node->value_);
+//        }
+//        return root;
+        Node *element  = search(root, value);
 
-        if (value < root->value_) {
-            root->left_ = deleteNode(root->left_, value);
-        } else if (value > root->value_) {
-            root->right_ = deleteNode(root->right_, value);
-        } else {
-            if (root->left_ == NULL) {
-                Node *node = root->right_;
-                node->parent_ = root->parent_;
-                delete root;
-                return node;
-            } else if (root->right_ == NULL) {
-                Node *node = root->left_;
-                node->parent_ = root->parent_;
-                delete root;
-                return node;
+        if (element != NULL) {
+            if ((element == root) && (element->left_ == NULL) && (element->right_ == NULL)) {
+                root = NULL;
+            } else if ((element == root) && (element->left_ == NULL)) {
+                root = root->right_;
+            } else if ((element == root) && (element->right_ == NULL)) {
+                root = root->left_;
+            } else if ((element->left_ == NULL) && (element->right_ == NULL)) {
+                if (element == element->parent_->left_) {
+                    element->parent_->left_ = NULL;
+                } else {
+                    element->parent_->right_ = NULL;
+                }
+            } else if (element->left_ == NULL) {
+                if (element == element->parent_->left_) {
+                    element->parent_->left_ = element->right_;
+                    element->parent_->left_->parent_ = element->parent_;
+                } else {
+                    element->parent_->right_ = element->right_;
+                    element->parent_->right_->parent_ = element->parent_;
+                }
+            } else if (element->right_ == NULL) {
+                if (element == element->parent_->left_) {
+                    element->parent_->left_ = element->left_;
+                    element->parent_->left_->parent_ = element->parent_;
+                } else {
+                    element->parent_->right_ = element->left_;
+                    element->parent_->right_->parent_ = element->parent_;
+                }
+            } else {
+                Node *node = minimum(element->right_);
+                int n = node->value_;
+                deleteNode(n);
+                element->value_ = n;
             }
-
-            Node *node = minimum(root->right_);
-            root->value_ = node->value_;
-            root->right_ = deleteNode(root->right_, node->value_);
         }
-        return root;
     }
 
 public:
@@ -242,9 +295,14 @@ public:
     }
 
     int treeDelete(int value) {
-        Node *node = deleteNode(root, value);
+        deleteNode(value);
     }
-
+    void print() {
+        if (root != NULL)
+            root->print();
+        else
+            printf("empty\n");
+    }
 };
 
 int main() {
@@ -252,8 +310,10 @@ int main() {
     string command;
     int num , ret;
 
+#ifndef DEBUG
     ifstream fin("bstsimple.in");
     ofstream fout("bstsimple.out");
+#endif
 
     while (true) {
         fin >> command;
@@ -284,11 +344,16 @@ int main() {
             } else {
                 fout << "none" << endl;
             }
-        }
+        } else if (command == "print")
+            tree.print();
+#ifdef DEBUG
+        tree.print();
+#endif
     }
-
+#ifndef DEBUG
     fin.close();
     fout.close();
+#endif
     return 0;
 
 }

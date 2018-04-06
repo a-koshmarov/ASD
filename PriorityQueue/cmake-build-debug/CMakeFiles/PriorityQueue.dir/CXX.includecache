@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/ITMO/ASD/PriorityQueue/main.cpp
+iostream
+-
+vector
+-
+algorithm
+-
+fstream
+-
+map
+-
+
