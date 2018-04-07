@@ -1,33 +1,14 @@
 #include <iostream>
-
-#ifndef DEBUG
 #include <fstream>
-#else
-#define fin cin
-#define fout cout
-#endif
 
 using namespace std;
-
-//class Node {
-//public:
-//    int value_;
-//    Node *left_;
-//    Node *right_;
-//    Node *parent_;
-//
-//    Node(int val) : value_(val) {
-//        left_ = NULL;
-//        right_ = NULL;
-//        parent_ = NULL;
-//    };
-//};
 
 struct Node {
     int value_;
     Node *left_ = NULL;
     Node *right_ = NULL;
     Node *parent_ = NULL;
+
     void print(int height = 0) {
         if (right_ != NULL)
             right_->print(height + 4);
@@ -184,30 +165,6 @@ private:
     }
 
     void deleteNode(int value) {
-//        if (!root) return root;
-//
-//        if (value < root->value_) {
-//            root->left_ = deleteNode(root->left_, value);
-//        } else if (value > root->value_) {
-//            root->right_ = deleteNode(root->right_, value);
-//        } else {
-//            if (root->left_ == NULL) {
-//                Node *node = root->right_;
-//                node->parent_ = root->parent_;
-//                delete root;
-//                return node;
-//            } else if (root->right_ == NULL) {
-//                Node *node = root->left_;
-//                node->parent_ = root->parent_;
-//                delete root;
-//                return node;
-//            }
-//
-//            Node *node = minimum(root->right_);
-//            root->value_ = node->value_;
-//            root->right_ = deleteNode(root->right_, node->value_);
-//        }
-//        return root;
         Node *element  = search(root, value);
 
         if (element != NULL) {
@@ -310,10 +267,8 @@ int main() {
     string command;
     int num , ret;
 
-#ifndef DEBUG
     ifstream fin("bstsimple.in");
     ofstream fout("bstsimple.out");
-#endif
 
     while (true) {
         fin >> command;
@@ -344,16 +299,10 @@ int main() {
             } else {
                 fout << "none" << endl;
             }
-        } else if (command == "print")
-            tree.print();
-#ifdef DEBUG
-        tree.print();
-#endif
+        }
     }
-#ifndef DEBUG
     fin.close();
     fout.close();
-#endif
     return 0;
 
 }

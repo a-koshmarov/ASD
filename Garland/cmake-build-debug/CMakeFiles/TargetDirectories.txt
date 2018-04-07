@@ -1,0 +1,3 @@
+C:/ITMO/ASD/Garland/cmake-build-debug/CMakeFiles/Garland.dir
+C:/ITMO/ASD/Garland/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/ITMO/ASD/Garland/cmake-build-debug/CMakeFiles/rebuild_cache.dir

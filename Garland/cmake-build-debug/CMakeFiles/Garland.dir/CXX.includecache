@@ -6,11 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/ITMO/ASD/PriorityQueue/main.cpp
-iostream
--
-fstream
--
-map
+C:/ITMO/ASD/Garland/main.cpp
+bits/stdc++.h
 -
 
