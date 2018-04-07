@@ -248,7 +248,12 @@ public:
     void getParent(int num) {
         Node *node = search(root, num);
 
-        cout << node->parent_->value_ << endl;
+        if(node->parent_){
+            cout << node->parent_->value_ << endl;
+        } else {
+            cout << "no parent" << endl;
+        }
+
     }
 
     int treeDelete(int value) {
@@ -299,6 +304,8 @@ int main() {
             } else {
                 fout << "none" << endl;
             }
+        } else if (command == "parent"){
+            tree.getParent(num);
         }
     }
     fin.close();

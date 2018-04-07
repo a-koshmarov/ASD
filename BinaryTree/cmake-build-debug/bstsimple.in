@@ -1,6 +1,6 @@
 insert 5
-insert 3
-insert 4
-insert 7
+insert 6
 delete 5
+insert 4
+next 4
 
