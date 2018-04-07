@@ -12,37 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51836be4-236c-4bf2-a08b-693ed69c945a" name="Default" comment="Added bin_tree functionality">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Garland/.idea/Garland.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Garland/.idea/codeStyles/Project.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Garland/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Garland/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Garland/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Garland/CMakeLists.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Garland/cmake-build-debug/garland.in" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Garland/main.cpp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PriorityQueue/.idea/PriorityQueue.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PriorityQueue/.idea/codeStyles/Project.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PriorityQueue/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PriorityQueue/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PriorityQueue/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PriorityQueue/CMakeLists.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/garland.in" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/priorityqueue.in" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PriorityQueue/main.cpp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Quack/.idea/Quack.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Quack/.idea/codeStyles/Project.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Quack/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Quack/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Quack/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Quack/CMakeLists.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Quack/cmake-build-debug/quack.in" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Quack/main.cpp" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_C.bin" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_C.bin" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdC/a.exe" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdC/a.exe" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/CMakeError.log" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/CMakeError.log" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/PriorityQueue.dir/CXX.includecache" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/PriorityQueue.dir/CXX.includecache" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/PriorityQueue.dir/main.cpp.obj" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/PriorityQueue.dir/main.cpp.obj" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/PriorityQueue.dir/objects.a" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/PriorityQueue.dir/objects.a" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/clion-environment.txt" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/clion-environment.txt" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/clion-log.txt" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/CMakeFiles/feature_tests.bin" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/PriorityQueue.exe" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/PriorityQueue.exe" />
-      <change beforePath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/priorityqueue.out" afterPath="$PROJECT_DIR$/../PriorityQueue/cmake-build-debug/priorityqueue.out" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,8 +59,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3230">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="544">
+              <caret line="272" column="18" lean-forward="false" selection-start-line="272" selection-start-column="18" selection-end-line="272" selection-end-column="18" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -126,9 +104,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="980" />
-    <option name="height" value="1030" />
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -201,7 +179,7 @@
       <workItem from="1522658949292" duration="4694000" />
       <workItem from="1522668567514" duration="2535000" />
       <workItem from="1522739771114" duration="2052000" />
-      <workItem from="1523043247499" duration="2773000" />
+      <workItem from="1523043247499" duration="3862000" />
     </task>
     <task id="LOCAL-00001" summary="Added bin_tree functionality">
       <created>1522599797008</created>
@@ -214,7 +192,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28049000" />
+    <option name="totallyTimeSpent" value="29138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -497,8 +475,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3230">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="544">
+          <caret line="272" column="18" lean-forward="false" selection-start-line="272" selection-start-column="18" selection-end-line="272" selection-end-column="18" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

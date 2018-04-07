@@ -1,0 +1,3 @@
+C:/ITMO/ASD/Quack/cmake-build-debug/CMakeFiles/Quack.dir
+C:/ITMO/ASD/Quack/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/ITMO/ASD/Quack/cmake-build-debug/CMakeFiles/rebuild_cache.dir
