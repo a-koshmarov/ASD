@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/ITMO/C/DynamicArray/MatrixTemplate.h
+C:/ITMO/ASD/DynamicArray/MatrixTemplate.h
 iostream
 -
 fstream
 -
 
-C:/ITMO/C/DynamicArray/main.cpp
+C:/ITMO/ASD/DynamicArray/main.cpp
 iostream
 -
 MatrixTemplate.h
-C:/ITMO/C/DynamicArray/MatrixTemplate.h
+C:/ITMO/ASD/DynamicArray/MatrixTemplate.h
 

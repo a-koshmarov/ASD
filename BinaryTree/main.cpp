@@ -97,6 +97,13 @@ private:
                     return NULL;
                 }
             }
+            if (p_node) {
+                if (search(root, p_node->value_)){
+                    return p_node;
+                } else {
+                    return NULL;
+                }
+            }
             return p_node;
         } else {
             pair<bool, int> min = make_pair(false, 0);
@@ -146,8 +153,13 @@ private:
                     return NULL;
                 }
             }
-
-//        delete node;
+            if (p_node) {
+                if (search(root, p_node->value_)){
+                    return p_node;
+                } else {
+                    return NULL;
+                }
+            }
             return p_node;
         } else {
             pair<bool, int> min = make_pair(false, 0);

@@ -7,17 +7,18 @@ using namespace std;
 int main() {
     Matrix<float> p;
     Matrix<float> s;
-    Matrix<Matrix<int>> t (2,2);
+    Matrix<float> g;
+//    Matrix<Matrix<int>> t (2,2);
 
 
     s.readFromFile("A.txt");
     p.readFromFile("B.txt");
 //    cout << s << endl <<p << endl;
 
-//    t = p+s;
+//    s*=p;
 //    p.trans();
-    cin >> t;
-    cout << t;
+    cin >> g;
+    cout << g;
 
     return 0;
 }

@@ -6,12 +6,6 @@
 
 using namespace std;
 
-//template<class T>
-//class Matrix;
-//
-//template<class T>
-//std::istream &operator>>(std::istream &, Matrix<T> &);
-
 template<class T>
 class Matrix {
 private:
@@ -24,7 +18,7 @@ public:
 
     ~Matrix();
 
-    void set(int, int, T);
+    void setArray();
 
     void setSize(int, int);
 
@@ -44,7 +38,7 @@ public:
 
     Matrix<T> &operator-();
 
-    Matrix<T> operator-(Matrix<T> &) const;
+    Matrix<T> operator-(const Matrix<T> &) const;
 
     Matrix<T> operator*(const Matrix<T> &) const;
 
@@ -59,9 +53,6 @@ public:
     void readFromFile(const std::string &);
 
     void writeToFile(const std::string &) const;
-
-//    template <class T>
-//    friend std::istream &operator>>(std::istream &, Matrix<T> &);
 };
 
 template<class T>
@@ -88,9 +79,10 @@ Matrix<T>::~Matrix() {
 }
 
 template<class T>
-void Matrix<T>::set(int row, int col, T item) {
-    array[row][col] = item;
+void Matrix<T>::setArray() {
+    array = createMatrix(rows, cols);
 }
+
 
 template <class T>
 void Matrix<T>::setSize(int row, int col){
@@ -175,8 +167,6 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &M) const {
             newMatrix.array[i][j] = array[i][j] + M.array[i][j];
         }
     }
-//    newMatrix.printMatrix(std::cout);
-//    std::cout << "adding" << std::endl;
     return newMatrix;
 }
 
@@ -192,14 +182,8 @@ Matrix<T> &Matrix<T>::operator-() {
 }
 
 template<class T>
-Matrix<T> Matrix<T>::operator-(Matrix<T> &M) const {
-    Matrix newMatrix = Matrix(rows, cols);
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < M.cols; j++) {
-            newMatrix.array[i][j] = array[i][j] - M.array[i][j];
-        }
-    }
-    return newMatrix;
+Matrix<T> Matrix<T>::operator-(const Matrix<T> &M) const {
+    return *this + -M;
 }
 
 
@@ -214,45 +198,22 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &M) const {
             }
         }
     }
-//    productMatrix.printMatrix(std::cout);
     return productMatrix;
 }
 
 template<class T>
 Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &M) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            array[i][j] = array[i][j] + M.array[i][j];
-        }
-    }
-    return *this;
+    return *this = *this + M;
 }
 
 template<class T>
 Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &M) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            array[i][j] = array[i][j] - M.array[i][j];
-        }
-    }
-    return *this;
+    return *this = *this - M;
 }
 
 template<class T>
 Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &M) {
-    T **productMatrix = createMatrix(rows, M.cols);
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < M.cols; j++) {
-            for (int k = 0; k < cols; k++) {
-                productMatrix[i][j] += array[i][k] * M.array[k][j];
-            }
-        }
-    }
-
-    cols = M.cols;
-    clearMatrix();
-    array = productMatrix;
-    return *this;
+    return *this = *this * M;
 }
 
 template<class T>
@@ -298,15 +259,19 @@ std::ostream &operator<<(std::ostream &s, const Matrix<T> &M) {
 
 template<class T>
 std::istream &operator>>(std::istream &s, Matrix<T> &M) {
-//    int n, m;
-    T t;
-    std::cout << "Matrix " << M.getRow() << "x" << M.getCol() << ":\n";
-//    std::cin >> n >> m;
+    int n, m;
+    std::cout << "x: ";
+    std::cin >> n;
+    std::cout << "y: ";
+    std::cin >> m;
+    M.setSize(n, m);
+    M.clearMatrix();
+    M.setArray();
 
     for (int i = 0; i < M.getRow(); i++) {
         for (int j = 0; j < M.getCol(); j++) {
-            std::cin >> t;
-            M.set(i,j,t);
+            T t = M.get(M.getRow(), M.getCol());
+            s >> t;
         }
     }
     return s;

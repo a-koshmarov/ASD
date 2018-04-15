@@ -256,7 +256,6 @@ std::istream &operator>>(std::istream &s, Matrix &M) {
         }
     }
     return s;
-//    return M.printMatrix(s);
 }
 
 
