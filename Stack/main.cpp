@@ -39,6 +39,24 @@ public:
         pointer_[inUse_] = num;
         inUse_++;
     }
+
+    void del(int num){
+        for (int i = 0; i<inUse_-1; i++){
+            if (pointer_[i] == num){
+                swap(pointer_[i],pointer_[i+1]);
+            }
+        }
+        if (pointer_[inUse_-1] == num) {
+            pop();
+        }
+    }
+
+    void print(){
+        for (int i = 0; i<inUse_; i++){
+            cout << pointer_[i] << ' ';
+        }
+        cout << endl;
+    }
 };
 
 
@@ -60,8 +78,13 @@ int main() {
         if (command == '+'){
             infile >> com;
             stack.push(com);
-        } else {
+        } else if (command == '-'){
             outfile << stack.pop() << endl;
+        } else if (command == 'd'){
+            infile >> com;
+            stack.del(com);
+        } else {
+            stack.print();
         }
     }
 

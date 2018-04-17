@@ -4,85 +4,123 @@
 
 using namespace std;
 
-struct element {
-    int value_;
-    bool deleted_;
+class Stack{
+private:
+    int *pointer_;
+    int size_;
+    int inUse_;
 
-    element(int value) : value_(value), deleted_(false) {}
+public:
+    Stack(int n = 4) : size_(n){
+        inUse_ = 0;
+        pointer_ = new int[n];
+    }
+
+    ~Stack(){
+        delete[] pointer_;
+    }
+
+    int pop(){
+        inUse_--;
+        return pointer_[inUse_];
+    }
+
+    void push(int num){
+        if (size_ == inUse_){
+            int *new_pointer_ = new int[size_*2];
+
+            for (int i = 0; i < size_; i++){
+                new_pointer_[i] = pointer_[i];
+            }
+            size_*=2;
+            swap(pointer_, new_pointer_);
+            delete[] new_pointer_;
+        }
+        pointer_[inUse_] = num;
+        inUse_++;
+    }
+
+    void del(int num){
+        for (int i = 0; i<inUse_-1; i++){
+            if (pointer_[i] == num){
+                swap(pointer_[i],pointer_[i+1]);
+            }
+        }
+        if (pointer_[inUse_-1] == num) {
+            pop();
+        }
+    }
+
+    void print(){
+        for (int i = 0; i<inUse_; i++){
+            cout << pointer_[i] << ' ';
+        }
+        cout << endl;
+    }
+
+    int getSize(){
+        return inUse_;
+    }
+
+    int get(int pos){
+        return pointer_[pos];
+    }
 };
 
 class HashSet {
 private:
     int size_;
-    vector<element *> data_;
+    vector<Stack*> data_;
 
 public:
     HashSet(int size) : size_(size) {
-        data_ = vector<element *>(size);
+        data_ = vector<Stack*>(size_);
+        for (int i=0; i<size_; i++){
+            data_[i] = new Stack;
+        }
     }
 
-    int hash_f(int value, int pos) {
-        int prime = 200003;
-        return ((abs(value) % prime) + pos) % size_;
+    ~HashSet(){
+        for (int i=0; i<size_; i++){
+            delete data_[i];
+        }
+    }
+
+    int hash_f(int value) {
+        int prime = 100007;
+        return abs(value) % prime;
     }
 
     void insert(int value) {
-        int index = 0;
-        while (index != size_) {
-            int hash_pos = hash_f(value, index);
+        int key = hash_f(value);
 
-            if (data_[hash_pos] == nullptr) {
-                data_[hash_pos] = new element(value);
-                break;
-            } else if (data_[hash_pos]->deleted_ && data_[hash_pos]->value_ == value) {
-                data_[hash_pos]->deleted_ = false;
-                break;
-            } else if (data_[hash_pos]->value_ == value) {
-                break;
-            } else {
-                index++;
-            }
+        if (!search(value)){
+            data_[key]->push(value);
         }
     }
 
-    int search(int value) {
-        int index = 0;
-        while (index != size_) {
-            int hash_pos = hash_f(value, index);
+    bool search(int value) {
+        int key = hash_f(value);
 
-            if (!data_[hash_pos]) break;
-
-            if (!(data_[hash_pos]->deleted_) && data_[hash_pos]->value_ == value) {
-                return hash_pos;
-            } else {
-                index++;
+        for (int i = 0; i<data_[key]->getSize(); i++){
+            if (data_[key]->get(i) == value){
+                return true;
             }
         }
-        return -1;
+        return false;
     }
 
     void del(int value) {
-        int index = search(value);
+        int key = hash_f(value);
 
-        if (index != -1) {
-            data_[index]->deleted_ = true;
+        if(search(value)){
+            data_[key]->del(value);
         }
     }
-
-    int getNum(int index){
-        if (!data_[index]->deleted_){
-            return data_[index]->value_;
-        } else {
-            return -1;
-        }
-
-    }
-
-
 };
 
 int main() {
-    HashSet set(1000000);
+    HashSet set(100007);
     string command;
     int num;
 
@@ -98,13 +136,13 @@ int main() {
         } else if (command == "delete") {
             set.del(num);
         } else if (command == "exists"){
-            if (set.search(num) != -1) {
+            if (set.search(num)) {
                 fout << "true" << endl;
             } else {
                 fout << "false" << endl;
             }
         } else {
-            cout << set.getNum(num) << endl;
+//            cout << set.getNum(num) << endl;
         }
     }
 
