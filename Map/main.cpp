@@ -21,9 +21,8 @@ public:
         delete[] pointer_;
     }
 
-    pair<string, string> pop() {
+    void pop() {
         inUse_--;
-        return pointer_[inUse_];
     }
 
     void push(string &key, string &value) {
@@ -103,7 +102,7 @@ public:
         for (int i = 0; i < key.length(); i++) {
             hash += int(key[i]) * int(pow(31, i));
         }
-        return hash % size_;
+        return abs(hash) % size_;
     }
 
     void insert(string &key, string &value) {
@@ -136,12 +135,23 @@ public:
         }
     }
 
-    string &get(string &key){
+    string get(string &key){
         int hash = hash_f(key);
         int pos = search(key);
 
         if (pos!=-1){
             return data_[hash]->getVal(pos);
+        }
+    }
+
+    void print(){
+        for(int i = 0; i<size_; i++){
+            if (data_[i]->getSize()){
+                for (int j = 0; j<data_[i]->getSize(); j++){
+                    cout << data_[i]->get(j) << ',' << data_[i]->getVal(j) << "->";
+                }
+                cout << endl;
+            }
         }
     }
 };
@@ -156,7 +166,6 @@ int main() {
 
     while (true) {
         fin >> command >> key;
-//        cout << command << ' ' << key << endl;
         if (fin.eof()) break;
 
         if (command == "put") {
@@ -171,7 +180,33 @@ int main() {
                 fout << "none" << endl;
             }
         }
+
+
+
+//        cin >> command;
+//        if (command == "i") {
+//            cin >> key;
+//            cin >> value;
+//            set.insert(key, value);
+//        } else if (command == "d") {
+//            cin >> key;
+//            set.del(key);
+//        } else if (command == "g") {
+//            cin >> key;
+//            if (set.search(key) != -1){
+//                cout << set.get(key) << endl;
+//            } else {
+//                cout << "none" << endl;
+//            }
+//        } else if (command == "p"){
+//            set.print();
+//        } else {
+//            break;
+//        }
+
     }
+
+
 
     fin.close();
     fout.close();

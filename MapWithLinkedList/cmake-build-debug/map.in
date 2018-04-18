@@ -4,3 +4,9 @@ get hello
 get bye
 delete hello
 get hello
+put hello why
+get hello
+delete hel
+get hello
+delete hello
+get hello
