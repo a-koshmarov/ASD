@@ -11,21 +11,25 @@ struct Node {
     string value_;
     Node *next_;
     Node *prev_;
+    Node *nextKey_;
+    Node *prevKey_;
 
     Node(string &key, string &value) : key_(key), value_(value) {
         next_ = nullptr;
         prev_ = nullptr;
+        nextKey_ = nullptr;
+        prevKey_ = nullptr;
     }
 };
 
 class HashMap {
 private:
-    vector<string> commands;
     int size_;
     vector<Node *> data_;
+    Node *command;
 
 public:
-    HashMap(int size) : size_(size) {
+    HashMap(int size) : size_(size), command(nullptr) {
         data_ = vector<Node*>(size_);
     }
 
@@ -48,7 +52,7 @@ public:
 
         if (data_[hash] == nullptr) {
             data_[hash] = new Node(key, value);
-            addKey(key);
+            addKey(data_[hash], key);
         } else {
             addElement(data_[hash], key, value);
         }
@@ -61,7 +65,7 @@ public:
         } else if (!node->next_) {
             node->next_ = new Node(key, value);
             node->next_->prev_ = node;
-            addKey(key);
+            addKey(node->next_, key);
         } else {
             addElement(node->next_, key, value);
         }
@@ -75,30 +79,27 @@ public:
         } else return (get(node->next_, key));
     }
 
-
-
-
     void del(Node *node, string &key){
         int hash = hash_f(key);
         if (node) {
             if (node->key_ == key){
                 if (node->prev_ == nullptr && node ->next_ == nullptr){
                     data_[hash] = nullptr;
-                    delKey(key);
+                    delKey(node, key);
                     delete node;
                 } else if (node->next_ == nullptr) {
                     node->prev_->next_ = nullptr;
-                    delKey(key);
+                    delKey(node, key);
                     delete node;
                 } else if (node->prev_ == nullptr) {
                     node->next_->prev_ = nullptr;
                     data_[hash] = node->next_;
-                    delKey(key);
+                    delKey(node, key);
                     delete node;
                 } else {
                     node->next_->prev_ = node->prev_;
                     node->prev_->next_ = node->next_;
-                    delKey(key);
+                    delKey(node, key);
                     delete node;
                 }
             } else {
@@ -107,49 +108,60 @@ public:
         }
     }
 
-    void addKey(string &key){
-        commands.push_back(key);
-    }
-
-    void delKey(string &key){
-        for (int i = 0; i<commands.size()-1; i++){
-            if (commands[i] == key){
-                swap(commands[i], commands[i+1]);
+    void addKey(Node* node, string &key){
+        if (command){
+            if (command->key_ == key){
+                return;
             }
-        }
-        if (commands[commands.size()-1] == key){
-            commands.pop_back();
+//            cout << command->value_ << ' ';
+            node->prevKey_ = command;
+//            cout << node->prevKey_->value_ << ' ';
+            command->nextKey_ = node;
+//            cout << command->nextKey_->value_ << ' ';
+            command = node;
+//            cout << command->value_ << endl;
+        } else {
+            command = node;
         }
     }
 
-    string getNext(string &key){
-        if (commands.empty()){
+    void delKey(Node *node, string &key){
+        if (node->prevKey_){
+//            cout << node->prevKey_->value_ << ' ';
+            node->prevKey_->nextKey_ = node->nextKey_;
+//            cout << node->prevKey_->nextKey_->value_ << endl;
+        }
+
+        if (node->nextKey_){
+//            cout << node->nextKey_->value_ << ' ';
+            node->nextKey_->prevKey_ = node->prevKey_;
+//            cout << node->nextKey_->prevKey_->value_ << endl;
+        }
+
+        if (node == command){
+            command = node->prevKey_;
+        }
+    }
+
+    string getNext(Node *node, string &key){
+        if (!node) {
             return "none";
-        }
-
-        for (int i = 0; i<commands.size()-1; i++){
-            if (commands[i] == key){
-                int h = hash_f(commands[i+1]);
-                return get(getHead(h), commands[i+1]);
-            }
-        }
-        return "none";
+        } else if (node->key_ == key) {
+            if (node->nextKey_){
+                return (node->nextKey_->value_);
+            } else return "none";
+        } else return (getNext(node->next_, key));
     }
 
-    string getPrev(string &key){
-        if (commands.empty()){
+    string getPrev(Node *node, string &key){
+        if (!node) {
             return "none";
-        }
-
-        for (int i = 1; i<commands.size(); i++){
-            if (commands[i] == key){
-                int h = hash_f(commands[i-1]);
-                return get(getHead(h), commands[i-1]);
-            }
-        }
-        return "none";
+        } else if (node->key_ == key) {
+            if (node->prevKey_){
+                return (node->prevKey_->value_);
+            } else return "none";
+        } else return (getPrev(node->next_, key));
     }
-
     void print() {
         for (int i = 0; i < size_; i++) {
             if (data_[i]) {
@@ -193,9 +205,11 @@ int main() {
             int h = set.hash_f(key);
             fout << set.get(set.getHead(h), key) << endl;
         } else if (command == "next"){
-            fout << set.getNext(key) << endl;
+            int h = set.hash_f(key);
+            fout << set.getNext(set.getHead(h), key) << endl;
         } else if (command == "prev") {
-            fout << set.getPrev(key) << endl;
+            int h = set.hash_f(key);
+            fout << set.getPrev(set.getHead(h), key) << endl;
         }
 
 
@@ -207,14 +221,23 @@ int main() {
 //            set.insert(key, value);
 //        } else if (command == "d") {
 //            cin >> key;
-//            set.del(key);
+//            int h = set.hash_f(key);
+//            set.del(set.getHead(h), key);
 //        } else if (command == "g") {
 //            cin >> key;
 //            int h = set.hash_f(key);
 //            cout << set.get(set.getHead(h), key) << endl;
 //        } else if (command == "p") {
 //            set.print();
-//        } else if (command == "stop") {
+//        } else if (command == "nx") {
+//            cin >> key;
+//            int h = set.hash_f(key);
+//            cout << set.getNext(set.getHead(h), key) << endl;
+//        } else if (command == "pr"){
+//            cin >> key;
+//            int h = set.hash_f(key);
+//            cout << set.getPrev(set.getHead(h), key) << endl;
+//        } else if (command == "stop"){
 //            break;
 //        }
     }

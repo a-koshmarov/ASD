@@ -125,7 +125,6 @@ int main() {
     string command;
     string key, value;
 
-
     ifstream fin("map.in");
     ofstream fout("map.out");
 
