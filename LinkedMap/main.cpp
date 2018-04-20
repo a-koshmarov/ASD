@@ -20,6 +20,7 @@ struct Node {
 
 class HashMap {
 private:
+    vector<string> commands;
     int size_;
     vector<Node *> data_;
 
@@ -47,6 +48,7 @@ public:
 
         if (data_[hash] == nullptr) {
             data_[hash] = new Node(key, value);
+            addKey(key);
         } else {
             addElement(data_[hash], key, value);
         }
@@ -59,6 +61,7 @@ public:
         } else if (!node->next_) {
             node->next_ = new Node(key, value);
             node->next_->prev_ = node;
+            addKey(key);
         } else {
             addElement(node->next_, key, value);
         }
@@ -81,23 +84,70 @@ public:
             if (node->key_ == key){
                 if (node->prev_ == nullptr && node ->next_ == nullptr){
                     data_[hash] = nullptr;
+                    delKey(key);
                     delete node;
                 } else if (node->next_ == nullptr) {
                     node->prev_->next_ = nullptr;
+                    delKey(key);
                     delete node;
                 } else if (node->prev_ == nullptr) {
                     node->next_->prev_ = nullptr;
                     data_[hash] = node->next_;
+                    delKey(key);
                     delete node;
                 } else {
                     node->next_->prev_ = node->prev_;
                     node->prev_->next_ = node->next_;
+                    delKey(key);
                     delete node;
                 }
             } else {
                 del(node->next_, key);
             }
         }
+    }
+
+    void addKey(string &key){
+        commands.push_back(key);
+    }
+
+    void delKey(string &key){
+        for (int i = 0; i<commands.size()-1; i++){
+            if (commands[i] == key){
+                swap(commands[i], commands[i+1]);
+            }
+        }
+        if (commands[commands.size()-1] == key){
+            commands.pop_back();
+        }
+    }
+
+    string getNext(string &key){
+        if (commands.empty()){
+            return "none";
+        }
+
+        for (int i = 0; i<commands.size()-1; i++){
+            if (commands[i] == key){
+                int h = hash_f(commands[i+1]);
+                return get(getHead(h), commands[i+1]);
+            }
+        }
+        return "none";
+    }
+
+    string getPrev(string &key){
+        if (commands.empty()){
+            return "none";
+        }
+
+        for (int i = 1; i<commands.size(); i++){
+            if (commands[i] == key){
+                int h = hash_f(commands[i-1]);
+                return get(getHead(h), commands[i-1]);
+            }
+        }
+        return "none";
     }
 
     void print() {
@@ -126,8 +176,8 @@ int main() {
     string key, value;
 
 
-    ifstream fin("map.in");
-    ofstream fout("map.out");
+    ifstream fin("linkedmap.in");
+    ofstream fout("linkedmap.out");
 
     while (true) {
         fin >> command >> key;
@@ -142,6 +192,10 @@ int main() {
         } else if (command == "get") {
             int h = set.hash_f(key);
             fout << set.get(set.getHead(h), key) << endl;
+        } else if (command == "next"){
+            fout << set.getNext(key) << endl;
+        } else if (command == "prev") {
+            fout << set.getPrev(key) << endl;
         }
 
 
