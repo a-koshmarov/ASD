@@ -6,67 +6,182 @@
 
 using namespace std;
 
-class Stack{
+struct TreeNode {
+    string value_;
+    TreeNode *left_ = nullptr;
+    TreeNode *right_ = nullptr;
+    TreeNode *parent_ = nullptr;
+
+    void print(int height = 0) {
+        if (right_ != nullptr)
+            right_->print(height + 4);
+        for (int i = 0; i < height; i++)
+            cout << ' ';
+        cout << value_ << endl;
+        if (left_ != nullptr)
+            left_->print(height + 4);
+    }
+};
+
+class Tree {
 private:
-    string *pointer_;
+    TreeNode *root;
     int size_;
-    int inUse_;
+
+    void add(TreeNode *root, string &value) {
+        if (root->value_ == value) return;
+        if (root->value_ < value) {
+            if (!root->right_) {
+//                cout << value << " is bigger then " << root->value_ << endl;
+                root->right_ = new TreeNode;
+                root->right_->value_ = value;
+                root->right_->parent_ = root;
+                size_++;
+            } else {
+                add(root->right_, value);
+            }
+        } else {
+            if (!root->left_) {
+//                cout << value << " is smaller then " << root->value_ << endl;
+                root->left_ = new TreeNode;
+                root->left_->value_ = value;
+                root->left_->parent_ = root;
+                size_++;
+            } else {
+                add(root->left_, value);
+            }
+        }
+    }
+
+    TreeNode *search(TreeNode *root, string &value) {
+        while (root && root->value_ != value) {
+            if (value < root->value_) {
+                if (root->left_ != nullptr) {
+                    root = root->left_;
+                } else {
+                    return nullptr;
+                }
+            } else if (root->right_ != nullptr) {
+                root = root->right_;
+            } else {
+                return nullptr;
+            }
+        }
+        return root;
+    }
+
+    TreeNode *minimum(TreeNode *root) {
+        while (root && root->left_ != nullptr) {
+            root = root->left_;
+        }
+        return root;
+    }
+
+    void deleteNode(string &value) {
+        TreeNode *element  = search(root, value);
+
+        if (element) {
+            if ((element == root) && (element->left_ == nullptr) && (element->right_ == nullptr)) {
+                root = nullptr;
+                size_--;
+            } else if ((element == root) && (element->left_ == nullptr)) {
+                root = root->right_;
+                size_--;
+            } else if ((element == root) && (element->right_ == nullptr)) {
+                root = root->left_;
+                size_--;
+            } else if ((element->left_ == nullptr) && (element->right_ == nullptr)) {
+                if (element == element->parent_->left_) {
+                    element->parent_->left_ = nullptr;
+                } else {
+                    element->parent_->right_ = nullptr;
+                }
+                size_--;
+            } else if (element->left_ == nullptr) {
+                if (element == element->parent_->left_) {
+                    element->parent_->left_ = element->right_;
+                    element->parent_->left_->parent_ = element->parent_;
+                } else {
+                    element->parent_->right_ = element->right_;
+                    element->parent_->right_->parent_ = element->parent_;
+                }
+                size_--;
+            } else if (element->right_ == nullptr) {
+                if (element == element->parent_->left_) {
+                    element->parent_->left_ = element->left_;
+                    element->parent_->left_->parent_ = element->parent_;
+                } else {
+                    element->parent_->right_ = element->left_;
+                    element->parent_->right_->parent_ = element->parent_;
+                }
+                size_--;
+            } else {
+                TreeNode *node = minimum(element->right_);
+                string n = node->value_;
+                deleteNode(n);
+                element->value_ = n;
+            }
+        }
+    }
 
 public:
-    Stack(int n = 4) : size_(n){
-        inUse_ = 0;
-        pointer_ = new string[n];
-    }
+    Tree() : root(nullptr), size_(0){}
 
-    ~Stack(){
-        delete[] pointer_;
-    }
-
-    string pop(){
-        inUse_--;
-        return pointer_[inUse_];
-    }
-
-    void push(string &value){
-        if (size_ == inUse_){
-            auto *new_pointer_ = new string[size_*2];
-
-            for (int i = 0; i < size_; i++){
-                new_pointer_[i] = pointer_[i];
-            }
-            size_*=2;
-            swap(pointer_, new_pointer_);
-            delete[] new_pointer_;
-        }
-        pointer_[inUse_] = value;
-        inUse_++;
-    }
-
-    void del(string &value){
-        for (int i = 0; i<inUse_-1; i++){
-            if (pointer_[i] == value){
-                swap(pointer_[i],pointer_[i+1]);
-            }
-        }
-        if (pointer_[inUse_-1] == value) {
-            pop();
+    void newNode(string &value) {
+        if (root) {
+            add(root, value);
+        } else {
+//            cout << "no root" << endl;
+            root = new TreeNode;
+            root->value_ = value;
+            size_++;
+//            cout << "root is " << root->value_ << endl;
         }
     }
 
-    void print(){
-        for (int i = 0; i<inUse_; i++){
-            cout << pointer_[i] << ' ';
+    int treeSearch(string &value) {
+        if (search(root, value)) {
+            return 1;
+        } else return 0;
+    }
+
+    void getRoot() {
+        cout << root->value_;
+    }
+
+    void getParent(string &value) {
+        TreeNode *node = search(root, value);
+
+        if(node->parent_){
+            cout << node->parent_->value_ << endl;
+        } else {
+            cout << "no parent" << endl;
         }
-        cout << endl;
+
+    }
+
+    void treeDelete(string &value) {
+        deleteNode(value);
+    }
+
+    void print(TreeNode *node, ostream &s) {
+        if (!node) return;
+
+        if (node->left_){
+            print(node->left_, s);
+        }
+        s << node->value_ << ' ';
+        if (node->right_){
+            print(node->right_, s);
+        }
+    }
+
+    void treePrint(ostream &s){
+        print(root, s);
     }
 
     int getSize(){
-        return inUse_;
-    }
-
-    string get(int pos){
-        cout << "size " << inUse_ << endl;
-        return pointer_[pos];
+        return size_;
     }
 };
 
@@ -74,51 +189,33 @@ struct Node {
     string key_;
     Node *next_;
     Node *prev_;
-    vector<string> values_;
-    int size_;
+    Tree values_;
 
     Node(string &key, string &value) : key_(key),
                                        next_(nullptr),
-                                       prev_(nullptr),
-                                       size_(1){
-        values_.push_back(value);
+                                       prev_(nullptr)
+                                       {
+        values_.newNode(value);
     }
 
     void insert(string &value){
-        for (int i=0; i<size_; i++){
-            if (values_[i] == value){
-                return;
-            }
-        }
-        values_.push_back(value);
-        size_++;
+        values_.newNode(value);
 //        cout << size_ << endl;
     }
 
     void del(string &value){
-        for (int i = 0; i<size_-1; i++){
-            if (values_[i] == value){
-                swap(values_[i],values_[size_-1]);
-                break;
-            }
-        }
-        if (values_[size_-1] == value) {
-            values_.pop_back();
-            size_--;
-        }
+        values_.treeDelete(value);;
     }
 
-    vector<string> get(){
-        return values_;
-    }
-
-    int getSize(){
-        cout << size_ << endl;
-        return size_;
-    }
 
     bool isEmpty(){
-        return size_ == 0;
+        return values_.getSize() == 0;
+    }
+
+    void print(ostream &s){
+        s << values_.getSize() << ' ';
+        values_.treePrint(s);
+        s << endl;
     }
 };
 
@@ -167,12 +264,12 @@ public:
         }
     }
 
-    pair<int, vector<string>> get(Node *node, string &key) {
+    void get(Node *node, string &key, ostream &s) {
         if (!node) {
-            return make_pair(0, vector<string>(0));
+            s << 0 << endl;
         } else if (node->key_ == key) {
-            return make_pair(node->getSize(), node->get());
-        } else return (get(node->next_, key));
+            node->print(s);
+        } else get(node->next_, key, s);
     }
 
     void del(Node *node, string &key, string &value){
@@ -233,7 +330,7 @@ public:
             if (data_[i]) {
                 Node *node = data_[i];
                 while (node) {
-//                    cout << node->key_ << ',' << node->value_ << "->";
+                    cout << node->key_<< "->";
                     node = node->next_;
                 }
                 cout << endl;
@@ -271,16 +368,34 @@ int main() {
             set.del(set.getHead(h), key, value);
         } else if (command == "get") {
             int h = set.hash_f(key);
-            pair<int, vector<string>> elem = set.get(set.getHead(h), key);
-            fout << elem.first << ' ';
-            for (int i = 0; i<elem.first; i++) {
-                fout << elem.second[i] << ' ';
-            }
-            fout << endl;
+            set.get(set.getHead(h), key, fout);
         } else if (command == "deleteall") {
             int h = set.hash_f(key);
             set.delAll(set.getHead(h), key);
         }
+
+//        cin >> command;
+//        if (command == "p") {
+//            cin >> key >> value;
+//            set.insert(key, value);
+//        } else if (command == "d") {
+//            cin >> key >> value;
+//            int h = set.hash_f(key);
+//            set.del(set.getHead(h), key, value);
+//        } else if (command == "g") {
+//            cin >> key;
+//            int h = set.hash_f(key);
+//            set.get(set.getHead(h), key, cout);
+//        } else if (command == "da") {
+//            cin >> key;
+//            int h = set.hash_f(key);
+//            set.delAll(set.getHead(h), key);
+//        } else if (command == "stop"){
+//            break;
+//        } else if (command == "pr"){
+//            set.print();
+//        }
+
     }
     return 0;
 }
