@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <type_traits>
 
 using namespace std;
 
@@ -19,6 +20,8 @@ public:
     ~Matrix();
 
     void setArray();
+
+    void set(int, int, T);
 
     void setSize(int, int);
 
@@ -66,7 +69,13 @@ T **Matrix<T>::createMatrix(int row, int col) {
     for (int i = 0; i < row; i++) {
         a[i] = new T[col];
         for (int j = 0; j < col; j++) {
-            a[i][j] = 0;
+            if (std::is_arithmetic<T>::value){
+                a[i][j] = 0;
+//                cout << "ar" << endl;
+            } else {
+//                a[i][j] = nullptr;
+//                cout << "not ar" << endl;
+            }
         }
     }
     return a;
@@ -82,6 +91,12 @@ template<class T>
 void Matrix<T>::setArray() {
     array = createMatrix(rows, cols);
 }
+
+template<class T>
+void Matrix<T>::set(int r, int c, T value){
+    array[r][c] = value;
+}
+
 
 
 template <class T>
@@ -269,9 +284,12 @@ std::istream &operator>>(std::istream &s, Matrix<T> &M) {
     M.setArray();
 
     for (int i = 0; i < M.getRow(); i++) {
+//        cout << "row " << i << endl;
         for (int j = 0; j < M.getCol(); j++) {
-            T t = M.get(M.getRow(), M.getCol());
+//            cout << "col " << j << endl;
+            T t;
             s >> t;
+            M.set(i, j, t);
         }
     }
     return s;

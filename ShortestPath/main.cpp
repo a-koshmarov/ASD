@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <tuple>
+#include <queue>
 
 using namespace std;
 
@@ -26,27 +27,31 @@ public:
         }
     }
 
+    void BFS(vector<int> &distances, queue<int> &searchPath, int pos){
+        for (int i = 0; i<adjacency_[pos].size(); i++){
+            int cur = adjacency_[pos][i];
+            if (distances[cur] == INF){
+                distances[cur] = distances[pos]+1;
+                searchPath.push(cur);
+            }
+        }
+        searchPath.pop();
+    }
+
     vector<int> pathFinder() {
         vector<int> distances(size_);
-        auto *visit = new bool[size_];
+        queue<int> searchPath;
+
         for (int i = 0; i < size_; i++) {
-            visit[i] = false;
             distances[i] = INF;
         }
         distances[0] = 0;
+        searchPath.push(0);
 
-        for (int i = 0; i < size_-1; i++) {
-            int node = pickMinNode(distances, visit);
-//            cout << "curr node is " << node << endl;
-            for (int j = 0; j<adjacency_[node].size(); j++){
-                int upd = adjacency_[node][j];
-//                cout << "dist of "<< upd << " is " << distances[upd] << endl;
-                if (distances[node] < INF && distances[node] + 1 < distances[upd]){
-                    distances[upd] = distances[node] + 1;
-//                    cout << "updated value of " << upd << " is " << distances[upd] << endl;
-                }
-            }
+        while(!searchPath.empty()){
+            BFS(distances, searchPath, searchPath.front());
         }
+
         return distances;
     }
 

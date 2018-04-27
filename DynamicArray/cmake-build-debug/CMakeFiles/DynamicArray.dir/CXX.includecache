@@ -11,6 +11,8 @@ iostream
 -
 fstream
 -
+type_traits
+-
 
 C:/ITMO/ASD/DynamicArray/main.cpp
 iostream
