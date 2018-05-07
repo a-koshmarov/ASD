@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/ITMO/ASD/Labyrinth/main.cpp
+iostream
+-
+fstream
+-
+vector
+-
+queue
+-
+algorithm
+-
+
