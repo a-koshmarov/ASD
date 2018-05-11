@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="Labyrinth" targetName="Labyrinth" />
+      <config projectName="ShortestWeightedPath" targetName="ShortestWeightedPath" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -11,7 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="140d4138-209b-45af-a3a4-e988e6ddf14e" name="Default" comment="" />
+    <list default="true" id="6344cad0-9228-4902-bb76-e968ec24ffc7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state relative-caret-position="350">
+              <caret line="15" column="87" lean-forward="true" selection-start-line="15" selection-start-column="87" selection-end-line="15" selection-end-column="87" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -44,18 +44,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../ShortestPath/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="79" column="2" lean-forward="false" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="output.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/output.txt">
+      <file leaf-file-name="pathmgep.out" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmake-build-debug/pathmgep.out">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -64,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="input.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/input.txt">
+      <file leaf-file-name="pathmgep.in" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmake-build-debug/pathmgep.in">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
-              <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,13 +66,20 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>long</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>long long</replace>
+    </replaceStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cmake-build-debug/input.txt" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/pathmgep.in" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/pathmgep.out" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/cmake-build-debug/output.txt" />
-        <option value="$PROJECT_DIR$/../ShortestPath/main.cpp" />
       </list>
     </option>
   </component>
@@ -92,7 +89,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="942" />
     <option name="width" value="980" />
     <option name="height" value="1030" />
@@ -116,12 +113,12 @@
         <subPane>
           <expand>
             <path>
-              <item name="Labyrinth" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="Labyrinth" type="462c0819:PsiDirectoryNode" />
+              <item name="ShortestWeightedPath" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="ShortestWeightedPath" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Labyrinth" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="Labyrinth" type="462c0819:PsiDirectoryNode" />
+              <item name="ShortestWeightedPath" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="ShortestWeightedPath" type="462c0819:PsiDirectoryNode" />
               <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -133,7 +130,6 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ShortestPath/main.cpp" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -147,16 +143,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Labyrinth">
+  <component name="RunManager" selected="Application.ShortestWeightedPath">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="Labyrinth" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Labyrinth" TARGET_NAME="Labyrinth" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Labyrinth" RUN_TARGET_NAME="Labyrinth">
+    <configuration name="ShortestWeightedPath" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShortestWeightedPath" TARGET_NAME="ShortestWeightedPath" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShortestWeightedPath" RUN_TARGET_NAME="ShortestWeightedPath">
       <envs />
     </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Labyrinth" />
+      <item index="1" class="java.lang.String" itemvalue="Application.ShortestWeightedPath" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -167,28 +163,28 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="140d4138-209b-45af-a3a4-e988e6ddf14e" name="Default" comment="" />
-      <created>1525376458854</created>
+      <changelist id="6344cad0-9228-4902-bb76-e968ec24ffc7" name="Default" comment="" />
+      <created>1525805782682</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1525376458854</updated>
-      <workItem from="1525376462751" duration="12404000" />
+      <updated>1525805782682</updated>
+      <workItem from="1525805787236" duration="8354000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12404000" />
+    <option name="totallyTimeSpent" value="8354000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="942" y="0" width="980" height="1030" extended-state="0" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24887387" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972972" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971016" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297619" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33454105" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297619" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -212,19 +208,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>177</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>30</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -237,31 +221,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/vector.tcc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/input.txt">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/pathmgep.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/output.txt">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/pathmgep.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -271,19 +239,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        <state relative-caret-position="350">
+          <caret line="15" column="87" lean-forward="true" selection-start-line="15" selection-start-column="87" selection-end-line="15" selection-end-column="87" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ShortestPath/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="79" column="2" lean-forward="false" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>

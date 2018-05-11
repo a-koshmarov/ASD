@@ -54,15 +54,6 @@ public:
 
         return distances;
     }
-
-    int pickMinNode(vector<int> &dist, bool visit[]) {
-        for (int i = 0; i < size_; i++) {
-            if (!visit[i] && dist[i] < INF) {
-                visit[i] = true;
-                return i;
-            }
-        }
-    }
 };
 
 int main() {
