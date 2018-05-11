@@ -1,0 +1,3 @@
+C:/ITMO/ASD/AllToAllPath/cmake-build-debug/CMakeFiles/AllToAllPath.dir
+C:/ITMO/ASD/AllToAllPath/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/ITMO/ASD/AllToAllPath/cmake-build-debug/CMakeFiles/rebuild_cache.dir
