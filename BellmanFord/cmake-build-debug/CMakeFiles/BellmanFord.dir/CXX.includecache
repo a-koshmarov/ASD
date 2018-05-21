@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/ITMO/ASD/BellmanFord/main.cpp
+iostream
+-
+fstream
+-
+vector
+-
+climits
+-
+queue
+-
+

@@ -59,7 +59,6 @@ public:
 
     vector<int> cycleCheck(ostream &s){
         vector<int> state(INF, 0), path, cycle;
-        bool cycle_state;
 
         for (int i = 0; i<size_; i++){
             if (state[i] == 0){
