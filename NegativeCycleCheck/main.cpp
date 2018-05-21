@@ -35,8 +35,9 @@ public:
     }
 
     void add(int i, int j, long long elem){
-        if (elem<INF && i!=j){
+        if (elem<INF){
             edges_.emplace_back(Edge(i, j, elem));
+            adjacency_[i].emplace_back(make_pair(j, elem));
             e_size_++;
         }
 //        cout << "size is " << edges_.size() << endl;
@@ -75,7 +76,7 @@ public:
                 int second = edges_[j].v_;
                 long long weight = edges_[j].weight_;
 
-                if (distance[first]!= INF && distance[second] > distance[first] + weight){
+                if (distance[second] > distance[first] + weight){
                     distance[second] = distance[first] + weight;
                     prev[second] = first;
                 }
@@ -88,7 +89,7 @@ public:
             int second = edges_[i].v_;
             long long weight = edges_[i].weight_;
             long long dist = distance[second];
-            if (distance[first] != INF && distance[first] + weight < distance[second]) {
+            if (distance[first] + weight < distance[second]) {
 //                cout << "cycle at " << second << endl;
                 cycle = first;
             }
@@ -147,6 +148,11 @@ int main() {
         for (int j = 0; j < n; j++){
             fin >> elem;
             graph.add(i, j, elem);
+            if (i == j && elem < 0){
+                fout << "YES" << endl << 2 << endl;
+                fout << i+1 << ' ' << j+1 << endl;
+                exit(0);
+            }
         }
     };
 
